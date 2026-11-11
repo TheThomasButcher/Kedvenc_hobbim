@@ -1,0 +1,849 @@
+
+/* INDEX.HTML ALAPBEÁLLÍTÁSOK */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 120px;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    background-color: #080b12;
+    background-image: url("Kepek/wp02.jpg");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    background-attachment: fixed;
+
+    color: #ffffff;
+    font-family: "Oswald", "Bahnschrift", Arial, sans-serif;
+}
+
+
+/* KÖZPONTI GRID ELRENDEZÉS meghatározása */
+
+main {
+    display: grid;
+
+    grid-template-columns:
+        minmax(180px, 1fr)
+        minmax(0, 3fr)
+        minmax(140px, 0.4fr);
+
+    grid-template-areas:
+        "h h h"
+        "a a j"
+        "f f f";
+
+    gap: 10px;
+    width: 100%;
+    min-height: 100vh;
+    padding: 5px;
+}
+
+
+/* Közös megjelenésű tartalmi elemek */
+
+header,
+footer,
+article,
+aside {
+    min-width: 0;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+}
+
+
+/* Grid-területek meghatározása */
+
+header {
+    grid-area: h;
+}
+
+article {
+    grid-area: a;
+}
+
+.jobb {
+    grid-area: j;
+}
+
+footer {
+    grid-area: f;
+}
+
+
+/* FEJLÉC – LOGÓ, NÉV ÉS MENÜ beállítások */
+
+.fejlec {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+
+    gap: 20px;
+    width: 100%;
+    padding: 15px 25px;
+
+    background: rgba(0, 0, 0, 0.55);
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/*Logószöveg beállítása */
+
+.logo-szoveg {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 25px;
+    font-weight: 700;
+    font-style: normal;
+    letter-spacing: 2px;
+    margin-left: 25px;
+    color: #ffffff;
+    text-shadow:
+        0 0 5px #00d9ff,
+        0 0 12px #008cff;
+    white-space: nowrap;
+}
+
+/* Logókép beállítása */
+
+.logo-kep {
+    display: block;
+    flex: 0 0 85px;
+
+    width: 95px;
+    height: 95px;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(0 0 1px #00d9ff)
+        drop-shadow(0 0 4px #008cff)
+        drop-shadow(0 0 12px rgba(0, 150, 255, 0.8));
+
+    transition: filter 0.3s ease;
+}
+
+
+/* TheThomasButcher felirat */
+
+/* Navigációs menü beállítása*/
+
+.menu {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    align-items: center;
+
+    /* A menüt a fejléc jobb oldalára igazítja. */
+    margin-left: auto;
+}
+
+
+/* Menüpontok beállítása*/
+
+.menu a {
+    color: #00d9ff;
+    background: transparent;
+    border: 1px solid rgba(0, 217, 255, 0.5);
+    border-radius: 8px;
+    padding: 10px 30px;
+    text-decoration: none;
+    font-family: 'Oxanium', sans-serif;
+    letter-spacing: 2px;
+    font-weight: 600;
+    text-shadow: 0 0 8px rgba(0, 217, 255, 0.8);
+    box-shadow: 0 0 8px rgba(0, 217, 255, 0.15);
+    transition: all 0.3s ease;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    white-space: nowrap;
+}
+
+
+
+/* Egérrel rámutatás és billentyűzetes fókusz beállítások */
+
+.menu a:hover,
+.menu a:focus-visible {
+    color: #ffffff;
+    border-color: #00aaff;
+    background-color: rgba(0, 149, 255, 0.18);
+    outline: none;
+}
+
+
+/* KÖZÉPSŐ FŐCÍM – KÉK NEON MEGJELENÉS beállítása */
+
+article {
+    grid-area: a;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    gap: 50px;
+
+    min-height: 450px;
+    padding: 25px;
+
+    background: transparent;
+    border: none;
+}
+
+
+/* A főcím/kezdőlap beállítása */
+
+
+.hero-cim {
+    width: 100%;
+    max-width: 1100px;
+    min-height: 450px;
+    padding: 60px 35px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    background: radial-gradient(
+    ellipse at center,
+    rgba(0, 5, 15, 0.90) 0%,
+    rgba(0, 8, 20, 0.70) 35%,
+    rgba(0, 10, 20, 0.35) 60%,
+    transparent 85%
+    );
+
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+
+/* FELSŐ FELIRAT beállítása */
+
+.hero-kis {
+    margin: 0 0 25px;
+
+    font-family: "Oxanium", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 5px;
+
+    color: #35caff;
+
+    text-shadow:
+        0 0 8px rgba(0, 174, 255, 0.8);
+}
+
+
+/* FŐCÍM beállítása */
+
+.hero-cim h2 {
+    margin: 0;
+
+    font-family: "Oxanium", sans-serif;
+    font-size: clamp(50px, 6vw, 65px);
+    font-weight: 700;
+    line-height: 1.3;
+
+    color: #ffffff;
+
+    text-shadow:
+        0 0 5px #ffffff,
+        0 0 15px rgba(0, 174, 255, 0.65),
+        0 0 30px rgba(0, 174, 255, 0.35);
+}
+
+
+/* FŐCÍM MÁSODIK, FEHÉR SORÁNAK beállítása */
+
+.hero-cim h2 span {
+    display: block;
+
+    color: #ffffff;
+
+    text-shadow:
+        0 0 5px #35caff,
+        0 0 15px #00aeff,
+        0 0 30px rgba(0, 174, 255, 0.8),
+        0 0 50px rgba(0, 174, 255, 0.4);
+}
+
+
+/* Neon választóvonal beállítása */
+
+.cim-vonal {
+    width: 150px;
+    height: 3px;
+
+    margin: 30px auto;
+
+    background: #00c8ff;
+    border-radius: 10px;
+
+    box-shadow:
+        0 0 5px #00c8ff,
+        0 0 15px #00aeff,
+        0 0 30px #00aeff;
+}
+
+
+/* Alsó felirat beállítása */
+
+.hero-leiras {
+    margin: 0;
+
+    font-family: "Oxanium", sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 4px;
+
+    color: #b4dff5;
+
+    text-shadow:
+        0 0 8px rgba(0, 174, 255, 0.5);
+}
+
+/* KÜLÖNÁLLÓ TARTALMI DOBOZOK beállítása */
+
+.tartalom-doboz {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 30px;
+    margin-top: 0;
+
+    background-color: rgba(2, 5, 12, 0.75);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    border: 1px solid rgba(0, 174, 255, 0.65);
+    border-radius: 18px;
+
+    box-shadow:
+        0 0 10px rgba(0, 174, 255, 0.25),
+        0 0 30px rgba(0, 174, 255, 0.18),
+        inset 0 0 20px rgba(2, 2, 2, 0.08);
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+}
+
+.tartalom-doboz h2 {
+    font-family: 'Oxanium', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #00eaff;
+    text-align: left;
+    letter-spacing: 5px;
+    text-shadow: 0 0 10px rgba(0, 234, 255, 0.6);
+    margin-bottom: 30px;
+}
+
+/* EGYEDI HÁTTÉRKÉP beállítása */
+
+.munkak-hatter {
+    background-image:
+        linear-gradient(rgba(2, 5, 12, 0.55), rgba(2, 5, 12, 0.55)),
+        url("Kepek/wp03.jpg");
+}
+
+/* MUNKÁK OSZLOPOS ELRENDEZÉSÉNEK beállítása */
+
+.munka-racs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+/* EGY-EGY MUNKA KÁRTYÁJÁNAK beállítása */
+
+.munka-kartya {
+    padding: 15px;
+
+    background: rgba(0, 0, 0, 0.55);
+
+    border: 1px solid rgba(0, 174, 255, 0.3);
+    border-radius: 12px;
+
+    text-align: center;
+}
+
+.munka-kartya img {
+    display: block;
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.munka-kartya h3 {
+    font-family: 'Oxanium', sans-serif;
+    font-size: 16px;
+    color: #00eaff;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 50px;
+}
+
+.munka-kartya p {
+    margin: 0;
+    font-family: 'Oxanium', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+    letter-spacing: 1px;
+    line-height: 1.5;
+}
+
+/* LÉTREHOZOTT EXTRA-SZOVEG SZABÁLY hozzáadása */
+
+.munka-kartya .extra-szoveg {
+    font-family: 'Oxanium', sans-serif;
+    font-size: 12px;
+    color: #78b3e4;
+    font-weight: 400;
+    text-align: justify;
+    margin-top: 15px;
+    
+}
+
+.munka-kartya:nth-child(4) {
+    grid-column: 1;
+}
+
+/* OLDALSÁVOK ÉS EGYÉB TARTALOM beállítása */
+
+.jobb h2 {
+    letter-spacing: 5px;
+    line-height: 1.25;
+    font-size: 10px;
+    text-align: center;
+    font-family: 'Oxanium', sans-serif;
+    font-weight: 700;
+}
+
+
+.jobb p {
+    line-height: 1.5;
+}
+
+.hasznos-oldalak {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 45px;
+}
+
+.hasznos-oldalak img {
+    border-radius: 15px;
+}
+
+section {
+    border-radius: 10px;
+}
+
+footer {
+    background: rgba(0, 0, 0, 0.35);
+    text-align: center;
+
+    font-family: 'Oxanium', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 2px;
+
+    color: #a9c9df;
+    text-shadow: 0 0 8px rgba(0, 217, 255, 0.4);
+
+    padding: 20px;
+}
+
+
+/* TABLET ÉS KISEBB LAPTOP beállítása - INDEX.HTML */
+
+@media screen and (max-width: 950px) {
+
+    .fejlec {
+        flex-wrap: wrap;
+    }
+
+    .menu {
+        margin-left: auto;
+    }
+
+    .menu a {
+        padding: 9px 14px;
+    }
+
+    main {
+        grid-template-columns:
+            minmax(150px, 1fr)
+            minmax(0, 2fr)
+            minmax(150px, 1fr);
+    }
+
+}
+
+
+/* MOBILNÉZET beállítása - INDEX.HTML */
+
+@media screen and (max-width: 650px) {
+
+    main {
+        grid-template-columns: minmax(0, 1fr);
+
+        grid-template-areas:
+            "h"
+            "a"
+            "j"
+            "f";
+    }
+
+    .fejlec {
+        position: relative;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        padding: 12px;
+    }
+
+    .logo-kep {
+        flex: 0 0 55px;
+        width: 55px;
+        height: 55px;
+    }
+
+    .logo-szoveg {
+        font-size: clamp(16px, 4.5vw, 22px);
+        margin-left: 5px;
+        white-space: normal;
+    }
+
+    .menu {
+        width: 100%;
+        margin-left: 0;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+    }
+
+    .menu a {
+        padding: 10px 5px;
+        font-size: 13px;
+        letter-spacing: 1px;
+        white-space: normal;
+    }
+
+    article {
+        min-height: 350px;
+        padding: 15px;
+    }
+
+    .hero-cim {
+        padding: 35px 18px;
+    }
+
+    .hero-kis {
+        font-size: 10px;
+        letter-spacing: 3px;
+    }
+
+    .hero-cim h2 {
+        font-size: 30px;
+    }
+
+    .hero-leiras {
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+
+    main {
+        width: 100%;
+        padding: 5px;
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    article,
+    aside,
+    .tartalom-doboz {
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    .munka-racs {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .munka-kartya {
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    .munka-kartya img,
+    .jobb img {
+        max-width: 100%;
+        height: auto;
+    }
+
+}
+
+/* A ROLAM.HTML formázásai */
+
+/* BEMUTATKOZÓ SZEKCIÓ beállítása */
+
+/* KÉTOSZLOPOS ELRENDEZÉS beállítása */
+
+.bemutatkozas {
+    width: 100%;
+    padding: 35px;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 45px;
+    align-items: start;
+}
+
+/* BAL OLDAL beállítása */
+
+.bemutatkozas-bal {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.profil-kep {
+    width: 140px;
+    height: 140px;
+    min-width: 140px;
+
+    border-radius: 50%;
+    object-fit: cover;
+
+    border: 2px solid #00eaff;
+    box-shadow: 0 0 18px rgba(0, 234, 255, 0.5);
+}
+
+.profil-adatok h2 {
+    font-family: 'Oxanium', sans-serif;
+    color: #00eaff;
+    font-size: 24px;
+    margin-bottom: 5px;
+    
+}
+
+.profil-adatok p {
+    font-family: 'Oxanium', sans-serif;
+    color: rgb(93, 210, 240);
+    font-size: 18px;
+}
+
+/* JOBB OLDAL beállítása */
+
+.bemutatkozas-jobb {
+    padding-left: 30px;
+    border-left: 1px solid rgba(0, 234, 255, 0.3);
+}
+
+.profil-szoveg h3 {
+    font-family: 'Oxanium', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #00eaff;
+    text-align: left;
+    letter-spacing: 5px;
+    text-shadow: 0 0 10px rgba(0, 234, 255, 0.6);
+
+    margin-top: 25px;
+    margin-bottom: 30px;
+}
+
+.profil-szoveg h3:nth-of-type(2) {
+    margin-top: 50px;
+}
+
+.profil-szoveg p {
+    font-family: 'Oxanium', sans-serif;
+    color: rgb(91, 175, 231);
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: justify;
+    margin-bottom: 15px;
+}
+
+.erdeklodes-lista {
+    font-family: 'Oxanium', sans-serif;
+    color: rgb(91, 175, 231);
+    font-size: 14px;
+    line-height: 1.5;
+
+    padding-left: 25px;
+    margin-top: 10px;
+}
+
+.erdeklodes-lista li {
+    margin-bottom: 10px;
+}
+
+/* MOBILNÉZET beállítása - ROLAM.HTML */
+
+@media (max-width: 950px) {
+
+    .bemutatkozas {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .bemutatkozas-jobb {
+        padding-left: 0;
+        border-left: none;
+        border-top: 1px solid rgba(0, 234, 255, 0.3);
+        padding-top: 25px;
+    }
+
+}
+
+@media (max-width: 650px) {
+
+    .bemutatkozas-bal {
+        flex-direction: column;
+        text-align: center;
+    }
+
+}
+
+main.rolam-oldal article {
+    justify-content: flex-start;
+    align-items: stretch;
+    min-height: auto;
+    gap: 0;
+    padding-top: 10px;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+
+/* KAPCSOLAT.HTML beállítása */
+
+/* KAPCSOLAT SZEKCIÓ beállítása */
+
+.kapcsolat-szekcio {
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr;
+    gap: 35px;
+
+    align-items: center;
+    padding: 35px;
+}
+
+.kapcsolat-cim {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* LOGÓK ÉS FELIRATOK beállítása */
+
+.kapcsolat-lista {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+}
+
+.kapcsolat-sor {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.kapcsolat-sor img {
+    display: block;
+    width: 65px;
+    height: 65px;
+    object-fit: contain;
+
+    border: none;
+    border-radius: 12px;
+    padding: 0;
+    box-shadow: none;
+    filter: none;
+
+    transition: transform 0.3s ease;
+}
+
+.kapcsolat-sor img:hover {
+    transform: scale(1.05);
+}
+
+.kapcsolat-sor p {
+    font-family: 'Oxanium', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #ffffff;
+    margin: 0;
+}
+
+/* ELVÁLASZTÓVONAL beállítása */
+
+.kapcsolat-elvalaszto {
+    width: 1px;
+    height: 100%;
+    min-height: 250px;
+
+    background: rgba(0, 234, 255, 0.35);
+}
+
+/* MOBILNÉZET beállítása - KAPCSOLAT.HTML */
+
+@media (max-width: 650px) {
+
+    .kapcsolat-szekcio {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .kapcsolat-elvalaszto {
+        width: 100%;
+        height: 1px;
+        min-height: 0;
+    }
+
+    .kapcsolat-lista {
+        gap: 25px;
+    }
+
+}
